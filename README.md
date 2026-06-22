@@ -50,16 +50,4 @@ Describe your fixed game in numbered steps so a reader can follow along without 
 5. Score updates correctly after each guess
 6. Game ends after the correct guess or when the player runs out of 8 attempts.
 
-**Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
-
-## 🧪 Test Results
-
-```
-# Paste your pytest output here, e.g.:
-# pytest tests/
-# ========================= X passed in 0.XXs =========================
-```
-
-## 🚀 Stretch Features
-
-- [ ] [If you choose to complete Challenge 4, describe the Enhanced UI changes here — a screenshot is optional]
+<img width="725" height="639" alt="image" src="https://github.com/user-attachments/assets/83a006a8-a2b3-485f-9841-16d89554a574" />
