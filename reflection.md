@@ -4,9 +4,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 ## 1. What was broken when you started?
 
-- What did the game look like the first time you ran it?
-- List at least two concrete bugs you noticed at the start  
-  (for example: "the hints were backwards").
+- What did the game look like the first time you ran it? When I first ran the game, it appeared to load normally, but several core features were broken. After finishing a round, clicking the "New Game" button with the same Difficulty did nothing. I had to manually refresh the page to reset the game. Secondly, the hint system was reversed: when my guess was too low, it told me to "GO LOWER", and when it was too high, it said "GO HIGHER". Lastly, the attempt counter was off by one: the game was set to 8 attempts, but it ended and showed the result when there was still 1 attempt remaining. 
 
 **Bug Reproduction Log**
 
@@ -14,15 +12,15 @@ Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+|Click "New Game" button after a round ends (using the same difficulty)|Game resets immediately| Nothing happens. Page must manually refresh| No error. Event listener likely unbound after game end|
+|Submit a guess lower than the secret number| "GO HIGHER" message displayed| "GO LOWER" message displayed| No error. Comparison operator likely flipped|
+|Play 8-attempt game and exhaust all guesses| Game ends after the 8th guess| Game ends with 1 attempt still showing| No error. Termination condittion likely uses < instead of <=|
 
 ---
 
 ## 2. How did you use AI as a teammate?
 
-- Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
+- Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)? Gemini
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
 
