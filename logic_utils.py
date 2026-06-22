@@ -1,3 +1,4 @@
+# FIX: Refactor the logic_utils.py to include a function that returns the range for a given difficulty level.
 def get_range_for_difficulty(difficulty: str):
     """Return (low, high) inclusive range for a given difficulty."""
     if difficulty == "Easy":
@@ -8,7 +9,7 @@ def get_range_for_difficulty(difficulty: str):
         return 1, 100
     return 1, 100
 
-
+# FIX: Refactor the parse_guess function to handle float inputs and round them to the nearest integer.
 def parse_guess(raw: str):
     """
     Parse user input into an int guess.
@@ -31,7 +32,7 @@ def parse_guess(raw: str):
 
     return True, value, None
 
-
+# FIX: Refactor High/Low hint logic.
 def check_guess(guess, secret):
     """
     Compare guess to secret and return (outcome, message).
@@ -44,7 +45,7 @@ def check_guess(guess, secret):
         return "Too High", "📉 Go LOWER!"
     return "Too Low", "📈 Go HIGHER!"
 
-
+# FIX: Refactor the update_score function to include a scoring system based on the number of attempts and whether the guess was correct or not.
 def update_score(current_score: int, outcome: str, attempt_number: int):
     """Update score based on outcome and attempt number.
 
