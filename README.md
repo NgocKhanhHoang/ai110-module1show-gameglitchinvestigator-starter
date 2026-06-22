@@ -25,19 +25,30 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+1. Game Purpose
+This game challenges the player to guess a secret number within a limited number of attempts, using "higher/lower" hints to narrow down their guess.
+
+2. Bugs Found
+- **"New Game" button unresponsive:** Clicking "New Game" with the same difficulty did nothing. The game state never reset, forcing a manual page refresh.
+- **High/Low hints:** The hint logic was inverted. A guess that was too low returned "GO HIGHER" instead of "GO LOWER", and vice versa.
+- **Off-by-one attempt counter:** With attempts set to 8, the game ended and displayed results while 1 attempt still remained.
+- **Unimplemented core functions:** `get_range_for_difficulty`, `parse_guess`, and `update_score` in `logic_utils.py` were placeholder stubs raising `NotImplementedError`.
+
+3. Fixes Applied
+- **High/Low hint bug:** Removed the even/odd branch in `app.py` that was converting the secret number to a string on even attempts, causing wrong comparisons. Fixed by passing `st.session_state.secret` directly to `check_guess`.
+- **New Game bug:** The reset block was missing `score`, `status`, and `history` resets. Added `score = 0`, `status = "playing"`, and `history = []` so the game fully restarts.
+- **Unimplemented functions:** Filled in the three placeholder functions — `get_range_for_difficulty`, `parse_guess`, and `update_score` — which were raising `NotImplementedError` in the starter code.
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. User enters a guess of 50
+2. Game returns "📈 Go HIGHER!"
+3. User enters a guess of 80
+4. Game returns "📉 Go LOWER!"
+5. Score updates correctly after each guess
+6. Game ends after the correct guess or when the player runs out of 8 attempts.
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
