@@ -33,9 +33,11 @@ low, high = get_range_for_difficulty(difficulty)
 st.sidebar.caption(f"Range: {low} to {high}")
 st.sidebar.caption(f"Attempts allowed: {attempt_limit}")
 
+# FIX: Refactor the secret number generation to use session state so it persists across reruns.
 if "secret" not in st.session_state:
     st.session_state.secret = random.randint(low, high)
 
+#FIX: Refactor the attempt logic so user can fully play 8 attempts. 
 if "attempts" not in st.session_state:
     st.session_state.attempts = 0
 
@@ -74,7 +76,7 @@ with col2:
     new_game = st.button("New Game 🔁")
 with col3:
     show_hint = st.checkbox("Show hint", value=True)
-
+# FIX: Refactor the "New Game" logic to reset the score, status, and history using agent mode.
 if new_game:
     st.session_state.attempts = 0
     st.session_state.secret = random.randint(low, high)
